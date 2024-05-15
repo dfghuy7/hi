@@ -1,10 +1,6 @@
-function minimumTotal(triangle) {
-  const n = triangle.length;
-  const dp = triangle[n - 1];
-  for (let i = n - 2; i >= 0; i--) {
-    for (let j = 0; j <= i; j++) {
-      dp[j] = triangle[i][j] + Math.min(dp[j], dp[j + 1]);
-    }
-  }
-  return dp[0];
-}
+const flattenDepth = (arr, depth = 1) =>
+  arr.reduce(
+    (a, v) =>
+      a.concat(depth > 1 && Array.isArray(v) ? flattenDepth(v, depth - 1) : v),
+    [],
+  );
