@@ -1,6 +1,6 @@
-const flattenDepth = (arr, depth = 1) =>
-  arr.reduce(
-    (a, v) =>
-      a.concat(depth > 1 && Array.isArray(v) ? flattenDepth(v, depth - 1) : v),
-    [],
-  );
+const isPrime = (num) => {
+  for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+    if (num % i === 0) return false;
+  }
+  return num > 1;
+};
